@@ -17,6 +17,8 @@ const store = useStore();
 
 const showAuth = computed(() => store.state.showAuth);
 
+// dsafdfsdfd
+// sdfdfdfds
 function openAuth() {
   store.dispatch('open');
 }

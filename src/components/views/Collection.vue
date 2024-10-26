@@ -19,4 +19,3 @@
   <style scoped>
     /* scoped表示这里的css样式不会泄露到其他组件 */
   </style>
-  
