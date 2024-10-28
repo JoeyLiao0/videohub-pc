@@ -85,6 +85,7 @@ const avatarSrc = require("@/assets/avatar.png");
 const handleAvatarClick = () => {
     router.push("/Me");
 };
+
 </script>
 
 <style scoped>

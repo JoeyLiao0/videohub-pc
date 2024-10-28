@@ -3,12 +3,7 @@
     <Auth></Auth>
     <sidebar></sidebar>
     <div class="main-content">
-      <li style="height: 33%;">a</li>
-      <li style="height: 33%;">a</li>
-      <li style="height: 33%;">a</li>
-      <li style="height: 33%;">a</li>
-      <li>a</li>
-      <li>a</li>
+      <router-view></router-view>
 
 
       <!-- <router-view>
@@ -25,6 +20,7 @@ import Auth from "./components/items/Auth.vue";
 import Sidebar from "./components/items/Sidebar.vue";
 
 import { useStore } from 'vuex';
+import router from "./router";
 
 const store = useStore();
 
