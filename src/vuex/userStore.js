@@ -3,7 +3,7 @@ const userStore = {
   namespaced: true, // 启用命名空间
   state() {
     return {
-      showAuth: false,
+      showAuth: true,
       status: null,
       registerTime: null,
       name: null,

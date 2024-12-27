@@ -4,7 +4,7 @@
             <div class="sub-grid-container">
                 <div class="logo-img">
                     <svg xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" viewBox="0 0 24 24">
-                        <path fill="red"
+                        <path fill="currentColor"
                             d="M6 16q-.825 0-1.412-.588Q4 14.825 4 14v-4q0-.825.588-1.413Q5.175 8 6 8t1.412.587Q8 9.175 8 10v4q0 .825-.588 1.412Q6.825 16 6 16Zm12 0q-.825 0-1.413-.588Q16 14.825 16 14v-4q0-.825.587-1.413Q17.175 8 18 8q.825 0 1.413.587Q20 9.175 20 10v4q0 .825-.587 1.412Q18.825 16 18 16Zm-6 4q-.825 0-1.412-.587Q10 18.825 10 18V6q0-.825.588-1.412Q11.175 4 12 4t1.413.588Q14 5.175 14 6v12q0 .825-.587 1.413Q12.825 20 12 20Z" />
                     </svg>
                 </div>
@@ -145,8 +145,9 @@ const activeIdx = computed(() => router.currentRoute.value.path);
 
 /* 悬停效果 */
 .el-menu-item:hover {
-    background-color: var(--background-black3);
-    transform: scale(1.1);
+    background-color: var(--primary-250);
+    transform: scale(1.05);
+    /* border-radius: 8px; */
     /* 点击时的缩放效果 */
 }
 
@@ -158,8 +159,8 @@ const activeIdx = computed(() => router.currentRoute.value.path);
 
 /* 侧边栏高亮样式 */
 .el-menu-item.is-active {
-    background-color: var(--background-black3);
-    color: white;
+    background-color: var(--primary-250);
+    color: var(--text-100);
     /* 高亮字体颜色 */
 }
 
@@ -171,17 +172,21 @@ const activeIdx = computed(() => router.currentRoute.value.path);
 }
 
 .el-menu {
-    border-color: var(--grey2);
-    background-color: var(--background-black1);
+    border-right:1px solid var(--primary-100);
+    /* background-color: var(--primary-100); */
+    
+     background: linear-gradient(to right, var(--primary-100),var(--primary-200));
+     /* box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.5); */
 }
 
 .logo-img {
+    color:rgb(74, 166, 253);
     grid-column: 2;
 }
 
 .logo-text {
 
-    color: var(--red1);
+    color:rgb(74, 166, 253);
     grid-column: 3;
 }
 
@@ -197,10 +202,10 @@ const activeIdx = computed(() => router.currentRoute.value.path);
 }
 
 .router-text {
-    color: var(--text-white1);
+    color: var(--text-100);
 }
 
 .router-icon {
-    color: var(--text-white2);
+    color: var(--text-100);
 }
 </style>

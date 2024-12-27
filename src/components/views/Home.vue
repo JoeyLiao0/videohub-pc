@@ -21,7 +21,7 @@ import Search from "../items/Search.vue";
   height: 100%;
   display: grid;
   padding: 0;
-  grid-template-rows: 1fr 5fr;
+  grid-template-rows: 120px 1fr;
   overflow: hidden;
 }
 .search-container{
@@ -30,7 +30,8 @@ import Search from "../items/Search.vue";
   grid-row: 1;
 }
 .content-container{
-  background-color: var(--background-black2);
+  background-color: var(--primary-100);
+  /* background: linear-gradient(45deg, var(--primary-100), var(--primary-200)); */
   width: 100%;
   height: 100%;
   grid-row: 2;

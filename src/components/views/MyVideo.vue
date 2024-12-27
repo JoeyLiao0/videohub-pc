@@ -90,7 +90,7 @@ onMounted(async() => {
   width: 100%;
   height: 100vh;
   overflow-y:auto;
-  background-color: var(--background-black1);
+  background-color: var(--primary-100);
 }
 
 /* Webkit浏览器滚动条样式 */
@@ -115,6 +115,7 @@ onMounted(async() => {
 .sub-grid-container {
   margin-left: 5%;
   width: 90%;
+  /* min-height: 250px; */
   /* 或者设置为一个固定的高度 */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -122,16 +123,16 @@ onMounted(async() => {
   /* 定义五列 */
   gap: 20px 10px;
   box-sizing: border-box;
-  padding: 10px;
   overflow-y: hidden;
-  background-color: var(--background-black2);
+  /* background-color: var(--primary-300); */
+  border-radius: 6px;
 }
 
 .title {
   font-size: 40px;
   font-style:initial;
   margin-left: 5.5%;
-  color:var(--text-white2);
+  color:var(--text-100);
 }
 
 .line{
@@ -139,7 +140,7 @@ onMounted(async() => {
   margin-left:5%;
   border:none;
   height: 1px;
-  background-color:var(--text-white3);
+  background-color:var(--primary-200);
 }
 
 

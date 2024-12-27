@@ -164,7 +164,7 @@ self.addEventListener(
   'message',
   async (e) => {
     try {
-      const { file, chunkSize, concurrencyLimit = 3 } = e.data;
+      const { file, chunkSize, concurrencyLimit = 6 } = e.data;
       const fileChunkList = await createFileChunk(file, chunkSize);
       await calculateChunksHash(fileChunkList, concurrencyLimit);
     } catch (err) {

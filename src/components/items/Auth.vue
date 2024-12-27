@@ -3,7 +3,10 @@
   <div class="auth" v-show="showAuth">
     <!-- <div class="layer"></div> -->
     <div class="auth-content">
-      <button class="exit" @click="closeAuth">退出</button>
+      <!-- <button class="exit" @click="closeAuth">退出</button> -->
+       <div class="exit">
+         <div class="btnClose" @click="closeAuth"></div>
+       </div>
       <div class="content">
         <div class="login-grid-container" v-if="showLogin">
           <span class="title">登录界面</span>
@@ -236,7 +239,8 @@ async function register() {
   min-width: 1200px;
   z-index: 1998;
   /* 确保蒙版在最上层 */
-  background-color: var(--text-white3);
+  background-color: rgba(255, 255, 255, 0.6);
+
 
 }
 
@@ -252,8 +256,10 @@ async function register() {
   height: 600px;
   z-index: 2000;
   /* 确保内容在最上层 */
-  background-color: var(--white);
-  border-radius: 5px;
+  /* background-color: var(--bg-200); */
+  background: linear-gradient(70deg, var(--primary-200), var(--primary-250));
+  border-radius: 8px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
 }
 
 .layer {
@@ -268,19 +274,19 @@ async function register() {
   height: 600px;
   z-index: 1999;
   /* 确保内容在最上层 */
-  background-color: var(--background-black4);
+  /* background-color: var(--background-black4); */
   border-radius: 5px;
 }
 
 .exit {
   position: absolute;
-  top: 2px;
-  right: 2px;
-  width: 50px;
+  top: 5px;
+  right: 5px;
+  /* width: 50px;
   height: 30px;
-  border-radius: 5px;
-  border: 1px solid;
-  background-color: var(--text-white1);
+  border-radius: 4px;
+  border: 0.5px solid;
+  background-color: var(--primary-300); */
 }
 
 .exit:hover {
@@ -322,38 +328,42 @@ async function register() {
   font-size: 45px;
   grid-row: 1;
   grid-column: 2/4;
+  color: var(--text-200);
 }
 
 .messageLogin {
   font-size: 18px;
   grid-row: 2;
   grid-column: 2/4;
-  color: var(--red1);
+  color: var(--accent-100);
 }
 
 .messageRegister {
   font-size: 18px;
   grid-row: 2;
   grid-column: 2/4;
-  color: var(--red1);
+  color: var(--accent-100);
 }
 
 .username-svg {
   grid-row: 3;
   grid-column: 1;
   margin-left: 20px;
+  color: var(--text-200);
 }
 
 .password-svg {
   grid-row: 4;
   grid-column: 1;
   margin-left: 20px;
+  color: var(--text-200);
 }
 
 .code-svg {
   grid-row: 6;
   grid-column: 1;
   margin-left: 20px;
+  color: var(--text-200);
 }
 
 .username-input {
@@ -397,34 +407,77 @@ async function register() {
 }
 
 .login-button {
+  position: relative;
   width: 100px;
   height: 40px;
   grid-row: 6;
-  grid-column: 2;
-  margin-left: 3px;
+  grid-column: 1/3;
+  left: 40px;
 }
 
 .back-login-button {
+  position: relative;
   width: 100px;
   height: 40px;
   grid-row: 7;
-  grid-column: 2;
-  margin-left: 3px;
+  grid-column: 1/3;
+  top: 20px;
+  left: 45px;
 }
 
 .register-button {
+  position: relative;
   width: 100px;
   height: 40px;
   grid-row: 6;
-  grid-column: 3;
-  margin-left: 3px;
+  grid-column: 3/5;
+  right: 30px;
 }
 
 .comfirm-register-button {
+  position: relative;
   width: 100px;
   height: 40px;
   grid-row: 7;
-  grid-column: 3;
-  margin-left: 3px;
+  grid-column: 3/5;
+  top: 20px;
+  right: 20px;
+}
+
+.btnClose {
+    /* 自定义配置 */
+    --btn-size: 20px;  /* 按钮的宽高 */
+    --btn-x-size: 4px; /* X号线条粗细 */
+    --color: var(--primary-100);     /* 颜色 */
+    /* 配置 END */
+
+    position: relative;
+    width: var(--btn-size);
+    height: var(--btn-size);
+
+    /* X线条旋转后会有偏移，使用 flex 进行居中对齐修正 */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+/* 绘制X线条 */
+.btnClose::after, .btnClose::before {
+    content: "";
+    position: absolute;
+    width: var(--btn-x-size);
+    height: var(--btn-size);
+    background-color: var(--color);
+    border-radius: calc(var(--btn-x-size ) / 2);
+}
+/* 两条线条各向左右分别旋转 45 度*/
+.btnClose::after {
+    transform: rotate(45deg);
+}
+.btnClose::before{
+    transform: rotate(-45deg) ;
+}
+.btnClose:hover{
+  cursor: pointer;
+
 }
 </style>

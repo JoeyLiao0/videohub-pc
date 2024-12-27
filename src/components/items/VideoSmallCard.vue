@@ -224,7 +224,7 @@ video {
 .info {
   grid-row: 1;
   grid-column: 2;
-  background-color: var(--grey2);
+  background-color: var(--primary-100);
   padding: 8px;
   display: flex;
   flex-direction: column;

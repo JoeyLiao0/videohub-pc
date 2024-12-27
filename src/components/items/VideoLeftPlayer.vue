@@ -257,7 +257,7 @@ onMounted(() => {
     height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: var(--background-black2);
+    background-color: var(--primary-200);
 }
 
 /* 视频播放上部标题 */
@@ -295,7 +295,7 @@ onMounted(() => {
 .video-wrap {
     width: 100%;
     height: 60%;
-    background-color: var(--background-black2);
+    background-color: var(--primary-100);
     border-radius: 2px;
 }
 

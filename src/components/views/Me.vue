@@ -146,7 +146,7 @@ const triggerFileInput = () => {
   gap: 20px 0;
   grid-template-rows: 1fr 5fr;
   overflow: hidden;
-  background-color: var(--background-black1);
+  background-color: var(--primary-100);
 }
 
 .header-container {
@@ -157,7 +157,7 @@ const triggerFileInput = () => {
   /* place-items: center; */
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: 120px 100px 100px;
-  border-bottom: 1px solid var(--grey2);
+  border-bottom: 1px solid var(--primary-200);
   align-items: center;
 }
 
@@ -197,10 +197,12 @@ const triggerFileInput = () => {
   width: 100%;
   /* background-color: var(--grey2); */
   border: none;
+
+
 }
 
 .el-menu {
-  background-color: var(--grey2);
+  background-color: var(--primary-200);
   display: grid;
   grid-template-rows: repeat(8, 1fr);
   gap: 15px;
@@ -241,12 +243,12 @@ const triggerFileInput = () => {
 
 /* 悬停效果 */
 .el-menu-item:hover {
-  background-color: var(--text-white3);
+  background-color: var(--primary-250);
 }
 
 /* 侧边栏高亮样式 */
 .el-menu-item.is-active {
-  background-color: var(--text-white3);
+  background-color: var(--primary-250);
 }
 
 .status {

@@ -10,8 +10,11 @@
       <span class="title">默认收藏夹</span>
       <hr class="line">
       <div class="sub-grid-container">
-        <Video class="video" v-for="video in videos" :key="video.title" :title="video.title" :author="video.name"
-          :releaseTime="video.published_at" :videoUrl="video.video_path" :coverUrl="video.cover_path"></Video>
+        <Video class="video" v-for="video in videos" :key="video.title" :id="video.id" :title="video.title"
+      :description="video.description" :cover_path="video.cover_path" :published_at="video.published_at"
+      :view_count="video.view_count" :like_count="video.like_count" :comment_count="video.comment_count"
+      :name="video.name" :avatar="video.avatar" :status="video.status" :video_path="video.video_path"
+      :is_liked="video.is_liked" :is_collected="video.is_collected"></Video>
       </div>
     </div>
 
@@ -63,7 +66,7 @@ onMounted(async() => {
   height: 100%;
   display: grid;
   padding: 0;
-  grid-template-rows: 1fr 5fr;
+  grid-template-rows: 120px 1fr;
   overflow: auto;
 }
 
@@ -74,7 +77,7 @@ onMounted(async() => {
 }
 
 .content-container {
-  background-color: var(--background-black2);
+  background-color: var(--primary-100);
   width: 100%;
   height: 100%;
   grid-row: 2;
@@ -121,7 +124,7 @@ onMounted(async() => {
   font-size: 40px;
   font-style: initial;
   margin-left: 2%;
-  color: var(--text-white2);
+  color: var(--text-100);
 }
 
 .line {
@@ -129,6 +132,6 @@ onMounted(async() => {
   margin-left: 1%;
   border: none;
   height: 1px;
-  background-color: var(--text-white3);
+  background-color: var(--primary-200);
 }
 </style>

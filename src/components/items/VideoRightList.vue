@@ -68,7 +68,7 @@ function lastPage() {
     display: grid;
     position: relative;
     /* grid-template-columns: 250px; */
-    background-color: var(--background-black2);
+    background-color: var(--primary-200);
     justify-content: center;
     width: 100%;
 }
@@ -84,7 +84,8 @@ function lastPage() {
 .up-panel-container {
     display: flex;
     align-items: center;
-    background-color: var(--background-black3);
+    background-color: var(--primary-200);
+    border-bottom: 1px solid black;
     /* border-radius: 20px; */
     padding: 10px;
     /* 添加一些内边距，使得布局更美观 */

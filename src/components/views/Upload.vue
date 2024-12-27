@@ -41,8 +41,8 @@
         <textarea v-model="cinVideoDesc" placeholder="请输入视频简介"></textarea>
       </div>
       <div class="video-upload-btn">
-        <el-button @click="handlePreviw">预览</el-button>
-        <el-button @click="handleUpload">发布</el-button>
+        <el-button class="btn" @click="handlePreviw">预览</el-button>
+        <el-button class="btn" @click="handleUpload">发布</el-button>
       </div>
     </div>
   </div>
@@ -248,7 +248,7 @@ function clearCinInfo() {
   width: 100%;
   height: 100%;
   display: grid;
-  background-color: var(--background-black2);
+  background-color: var(--primary-100);
   grid-template-columns: 5fr 4fr;
 }
 
@@ -274,16 +274,19 @@ function clearCinInfo() {
 /* 左侧视图 */
 .upload-left {
   grid-column: 1;
-  background-color: var(--background-black2);
+  /* background-color: var(--background-black2); */
+  background-color: var(--primary-100);
   height: 100%;
-  border-right: 1px solid var(--text-white3);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  border-right: 1px solid var(--primary-100);
 }
 
 /* 视频展示框 */
 .video {
   margin: 14px 10px;
   border-radius: 3px;
-  border: 1px solid var(--text-white3);
+  border: 1px solid var(--primary-100);
   height: 600px;
 }
 
@@ -297,8 +300,11 @@ function clearCinInfo() {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100px;
-  margin: 0px 10px;
+  height: auto;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
   border: 1px solid rgb(123, 121, 121);
   background-color: var(--text-white2);
 }
@@ -317,19 +323,23 @@ function clearCinInfo() {
 }
 
 .upload-demo:hover {
-  border-color: #409eff;
+  /* border-color: #409eff; */
   /* 鼠标悬停时改变边框颜色 */
-  background-color: #f0f9ff;
+  background-color: var(--primary-200);
+  color: var(--text-100);
   /* 鼠标悬停时改变背景颜色 */
 }
 
 /* 右侧视图 */
 .upload-right {
+  border: 1px solid black;
+  margin: 15px;
+  margin-top: 15px;
   grid-column: 2;
-  height: 100%;
-  width: 100%;
+  height: auto;
+  width: auto;
   color: var(--text-white2);
-  background-color: var(--background-black2);
+  background-color: var(--primary-200);
   box-sizing: border-box;
 }
 
@@ -450,6 +460,11 @@ function clearCinInfo() {
   box-sizing: border-box;
 }
 
+/* .video-upload-btn:hover{ */
+  /* background-color: var(--primary-200); */
+  /* color:white; */
+/* } */
+
 .video-upload-btn button {
   width: 100px;
   height: 50px;
@@ -461,7 +476,15 @@ function clearCinInfo() {
 
 .el-button {
   color: var(--background-black2);
-  background-color: var(--text-white2);
+  background-color: var(--text-100);
   border: none;
+}
+
+.btn{
+  margin-bottom: 30px;
+}
+.btn:hover {
+  background-color: var(--primary-225);
+  color:var(--text-100);
 }
 </style>

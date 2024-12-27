@@ -98,13 +98,14 @@ onMounted(async () => {
     place-items: center;
     grid-template-rows: 30px repeat(6, 1fr) 30px;
     grid-template-columns: 1fr 3fr 1fr;
-    background-color: var(--background-black3);
+    background-color: var(--primary-200);
+    /* border-radius: 6px; */
 }
 
 .text {
     display: grid;
     place-content: center;
-    color: var(--text-white1);
+    color: var(--text-100);
     font-size: 18px;
     width: 100%;
     height: 100%;
@@ -113,7 +114,7 @@ onMounted(async () => {
 .text2 {
     display: grid;
     justify-content: center;
-    color: var(--text-white1);
+    color: var(--text-100);
     font-size: 18px;
     width: 100%;
     height: 100%;
@@ -173,7 +174,7 @@ onMounted(async () => {
 }
 
 ::v-deep .el-input__wrapper {
-    background-color: var(--background-black4);
+    background-color: var(--text-200);
     box-shadow: none !important;
 }
 
@@ -182,7 +183,7 @@ onMounted(async () => {
   box-shadow: none !important;
 } */
 ::v-deep .el-input__inner {
-    color: var(--text-white1);
+    color: var(--primary-200);
     /* 设置输入文字颜色 */
 }
 

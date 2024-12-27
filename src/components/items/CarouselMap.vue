@@ -32,18 +32,20 @@ const carouselHeight = ref('520px');
 
 <style scoped>
 .carousel-box {
-  width: 100%; /* 设置轮播图的宽度 */
+  width: 99.9%; /* 设置轮播图的宽度 */
   height: 100%;
   margin: auto; /* 水平居中 */
-  border:solid var(--grey2) 1px;
+  border:solid var(--primary-100) 1px;
+  border-radius: 2px;
 }
 
 .carousel-image {
-  margin-left:0.5%;
-  width: 99%; /* 图片宽度填满容器 */
+  /* margin-left:0.5%; */
+  width: 100%; /* 图片宽度填满容器 */
   height: 100%; /* 图片高度自适应 */
   display: block; /* 去除图片下方的空白间隙 */
   object-fit: cover; /* 保证图片按比例填充容器 */
+  border-radius: 2px;
 }
 
 .carousel-font{
@@ -52,6 +54,6 @@ const carouselHeight = ref('520px');
     bottom: 20px;
     font-size: 20px;
     z-index: 1003;
-    color: var(--text-white1);
+    color: var(--text-100);
 }
 </style>

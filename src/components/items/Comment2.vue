@@ -257,6 +257,11 @@ async function sendComment(reply, i) {
         } catch (error) {
             console.log('评论发送请求失败');
         }
+        input_comment0.value = "";
+        input_comment.value = "";
+        showIdx.value = -1;
+        targetCommentId.value= -1;
+        targetCommentAuthorName.value = "";
     }
 
 }
@@ -301,13 +306,13 @@ async function clicked_like(item) {
 
 <style scoped>
 .comment {
-    background-color: antiquewhite;
+    background-color: var(--primary-300);
     height: auto;
     margin-bottom: 20px;
 }
 
 .my-reply {
-    background-color: var(--text-white2);
+    background-color:var(--primary-300);
     position: relative;
     display: grid;
     grid-template-rows: auto;
@@ -315,6 +320,7 @@ async function clicked_like(item) {
     grid-template-columns: 40px 1fr;
     min-height: 80px;
     padding: 5px;
+    border-bottom: 1px solid black;
     /* 给容器添加内边距 */
 }
 
@@ -426,7 +432,7 @@ async function clicked_like(item) {
 }
 
 .comment-like {
-    color: rgb(187, 187, 187);
+    color: rgb(7, 7, 7);
     animation: fireworks 0.5s forwards;
     transition: transform 0.5s ease-in-out;
 }

@@ -48,8 +48,9 @@ const id =ref((video!=null)?video.id:-1);
   box-sizing: content-box;
   justify-content: center;
   position: relative;
-  /* background-color: var(--background-black1); */
+  background-color: var(--primary-100);
   overflow-y: auto;
+
 }
 
 .VideoPlay {

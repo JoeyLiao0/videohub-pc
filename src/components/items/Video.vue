@@ -169,7 +169,7 @@ function videoPlayPage(){
 .box:hover {
   border-color: #726c6c;
   /* 悬停时改变边框颜色 */
-  transform: scale(1.03);
+  transform: scale(1.02);
   cursor: pointer;
 }
 
