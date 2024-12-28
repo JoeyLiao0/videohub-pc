@@ -70,6 +70,11 @@ const status = computed(() => {
 })
 
 const avatarSrc = computed(() => store.state.user.avatar);
+
+onMounted(()=>{
+  console.log(store.state.user.avatar);
+})
+
 // 当组件挂载时，获取个人数据
 // onMounted(async () => {
 //   try {

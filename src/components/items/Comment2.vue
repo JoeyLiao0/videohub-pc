@@ -306,6 +306,7 @@ async function clicked_like(item) {
 
 <style scoped>
 .comment {
+    
     background-color: var(--primary-300);
     height: auto;
     margin-bottom: 20px;
@@ -331,6 +332,7 @@ async function clicked_like(item) {
 }
 
 .reply-input {
+    background-color: aliceblue;
     width: 100%;
 }
 
@@ -366,6 +368,7 @@ async function clicked_like(item) {
 }
 
 .author-info {
+    color: var(--text-200);
     /* background-color: var(--text-white2); */
     position: relative;
     display: grid;
@@ -387,6 +390,7 @@ async function clicked_like(item) {
 }
 
 .content-container {
+    color: var(--text-200);
     display: grid;
     grid-template-rows: 1fr 20px;
     width: 90%;
@@ -395,6 +399,7 @@ async function clicked_like(item) {
 }
 
 .comment-info {
+    /* color: var(--text-200); */
     display: grid;
     position: relative;
     grid-template-rows: 1fr;
@@ -406,6 +411,7 @@ async function clicked_like(item) {
 }
 
 .text-info {
+    color: var(--text-200);
     font-size: 16px;
 }
 
@@ -417,6 +423,7 @@ async function clicked_like(item) {
 }
 
 .comment-sub-container {
+    color: var(--text-200);
     margin-left: 40px;
     height: auto;
     margin-bottom: 10px;
@@ -432,7 +439,7 @@ async function clicked_like(item) {
 }
 
 .comment-like {
-    color: rgb(7, 7, 7);
+    color: rgb(255, 255, 255);
     animation: fireworks 0.5s forwards;
     transition: transform 0.5s ease-in-out;
 }
@@ -446,4 +453,6 @@ async function clicked_like(item) {
 .comment-like:hover {
     cursor: pointer;
 }
+
+
 </style>

@@ -88,6 +88,9 @@ function search() {
     grid-column:2/11;
 }
 
+.search-icon{
+  color: white;
+}
 .search-icon:hover{
   cursor: pointer;
 }
@@ -97,11 +100,11 @@ function search() {
 }
 
 ::v-deep .el-input__inner {
-  color: var(--bg-100); /* 设置输入文字颜色 */
+  color: var(--text-100); /* 设置输入文字颜色 */
 }
 
 ::v-deep .el-input__inner::placeholder {
-  color: var(--bg-300);
+  color: var(--text-200);
 }
 .search-icon {
     grid-column: 11;

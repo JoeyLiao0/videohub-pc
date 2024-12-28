@@ -75,11 +75,19 @@ body,
 
   --yellow: rgba(235, 188, 122, 1);
 
-  --primary-100: #272f3d;
+  /* --primary-100: #272f3d;
   --primary-200: #56647b;
   --primary-225: #44659e;
   --primary-250: #779cdb;
-  --primary-300: #b4c2dc;
+  --primary-300: #b4c2dc; */
+
+  --primary-100: #000000;
+  --primary-200: #1d232d;
+  --primary-225: #1b2129;
+  --primary-250: #2c3646;
+  --primary-300: #2b2b2b;
+
+
   --accent-100: #FF4D4D;
   --accent-200: #ffecda;
   --text-100: #FFFFFF;

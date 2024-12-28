@@ -418,8 +418,8 @@ function clearCinInfo() {
   resize: none;
   grid-column: 2;
   height: 30px;
-  background-color: var(--background-black3);
-  color: var(--text-white1);
+  /* background-color: var(--background-black3); */
+  /* color: var(--text-white1); */
   border: none;
 }
 
@@ -439,8 +439,8 @@ function clearCinInfo() {
 }
 
 .video-desc textarea {
-  color: var(--text-white1);
-  background-color: var(--background-black3);
+  /* color: var(--text-white1); */
+  /* background-color: var(--background-black3); */
   border: none;
   grid-column: 2;
   height: 200px;
