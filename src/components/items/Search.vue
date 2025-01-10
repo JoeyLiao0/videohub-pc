@@ -56,7 +56,9 @@ function search() {
   height: 100%;
   display: grid;
   /* background-image: url("/public/img7.png"); */
-  background: linear-gradient(0deg, var(--primary-100), var(--primary-225));
+  /* background: linear-gradient(0deg, var(--primary-100), var(--primary-225)); */
+  
+  background-color: var(--bg);
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: 2fr 2fr 3fr;
 

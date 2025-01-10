@@ -113,7 +113,7 @@ async function getCode() {
     place-items: center;
     grid-template-rows: 5px repeat(6, 1fr) 30px;
     grid-template-columns: 1fr 3fr 1fr;
-    background-color: var(--primary-200);
+    background-color: var(--bg);
     border: 6px;
 
 }

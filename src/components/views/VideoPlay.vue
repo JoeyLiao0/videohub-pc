@@ -48,7 +48,7 @@ const id =ref((video!=null)?video.id:-1);
   box-sizing: content-box;
   justify-content: center;
   position: relative;
-  background-color: var(--primary-100);
+  background-color: var(--bg);
   overflow-y: auto;
 
 }

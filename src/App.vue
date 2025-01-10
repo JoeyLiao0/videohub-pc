@@ -1,10 +1,12 @@
 <template>
   <div class="app-grid-container">
     <Auth></Auth>
-    <sidebar></sidebar>
-    <div class="app-main-content">
-      <router-view></router-view>
-    </div>
+      <div class="sidebar">
+        <sidebar></sidebar>
+      </div>
+      <div class="app-main-content">
+        <router-view></router-view>
+      </div>
   </div>
 </template>
 
@@ -19,10 +21,19 @@ import Sidebar from "./components/items/Sidebar.vue";
 html,
 body,
 #app {
-  background-color: var(--background-black1);
+  background-color: black;
   height: 100%;
   width: 100%;
   margin: 0;
+  box-sizing: border-box;
+  background-image: url("/public/img9.png");
+  background-size:cover ;
+}
+.sidebar{
+  grid-column: 1;
+  margin: 10px;
+  border-radius: 8px;
+  border:1px solid rgb(48, 48, 48);
 }
 
 .app-grid-container {
@@ -31,19 +42,22 @@ body,
   grid-template-columns: 1fr 11fr;
   grid-template-rows: 1fr;
   width: 100%;
-  height: 100%;
-  background-color: var(--background-black1);
+  height: 100%; 
 }
 
 .app-main-content {
-  grid-column: 11fr;
-  height: 100%;
-  width: 100%;
+  margin: 10px;
+  margin-left: -5px;
+
+  grid-column: 2;
+
   min-width: 1200px;
   min-height: 600px;
 
+  border-radius: 8px;
+  border:1px solid rgb(73, 73, 73);
+
   overflow-y: auto;
-  background-color: var(--silver);
 }
 
 /* 主题颜色 */
@@ -75,26 +89,24 @@ body,
 
   --yellow: rgba(235, 188, 122, 1);
 
-  /* --primary-100: #272f3d;
-  --primary-200: #56647b;
-  --primary-225: #44659e;
-  --primary-250: #779cdb;
-  --primary-300: #b4c2dc; */
 
   --primary-100: #000000;
-  --primary-200: #1d232d;
-  --primary-225: #1b2129;
-  --primary-250: #2c3646;
-  --primary-300: #2b2b2b;
+  --primary-200: #272727;
+  --primary-225: #0e0e0e;
+  --primary-250: #474747;
+  --primary-300: #525252;
 
 
   --accent-100: #FF4D4D;
   --accent-200: #ffecda;
   --text-100: #FFFFFF;
   --text-200: #e0e0e0;
-  --bg-100: #1A1F2B;
-  --bg-200: #292e3b;
+  --bg-100: #000000;
+  --bg-200: #070707;
   --bg-300: #414654;
+
+
+  --bg:rgba(167, 167, 167, 0.6);
 
 }
 </style>

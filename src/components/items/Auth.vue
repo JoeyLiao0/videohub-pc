@@ -239,7 +239,8 @@ async function register() {
   min-width: 1200px;
   z-index: 1998;
   /* 确保蒙版在最上层 */
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: var(--bg);
+
 
 
 }
@@ -257,7 +258,9 @@ async function register() {
   z-index: 2000;
   /* 确保内容在最上层 */
   /* background-color: var(--bg-200); */
-  background: linear-gradient(70deg, var(--primary-200), var(--primary-250));
+  background: rgba(92, 92, 92, 0.9);
+  /* background-color: var(--bg); */
+  
   border-radius: 8px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
 }

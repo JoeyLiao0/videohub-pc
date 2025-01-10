@@ -15,8 +15,8 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
-import { ElCarousel, ElCarouselItem, ElImage } from 'element-plus';
+import { ref } from 'vue';
+
 
 // 图片数据
 const images = ref([
@@ -35,8 +35,8 @@ const carouselHeight = ref('520px');
   width: 99.9%; /* 设置轮播图的宽度 */
   height: 100%;
   margin: auto; /* 水平居中 */
-  border:solid var(--primary-100) 1px;
-  border-radius: 2px;
+  /* border:solid var(--primary-100) 1px; */
+  border-radius: 8px;
 }
 
 .carousel-image {
@@ -45,7 +45,8 @@ const carouselHeight = ref('520px');
   height: 100%; /* 图片高度自适应 */
   display: block; /* 去除图片下方的空白间隙 */
   object-fit: cover; /* 保证图片按比例填充容器 */
-  border-radius: 2px;
+  background-size: conver;
+  border-radius: 8px;
 }
 
 .carousel-font{

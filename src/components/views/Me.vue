@@ -151,7 +151,7 @@ const triggerFileInput = () => {
   gap: 20px 0;
   grid-template-rows: 1fr 5fr;
   overflow: hidden;
-  background-color: var(--primary-100);
+  background-color: var(--bg);
 }
 
 .header-container {
@@ -207,7 +207,9 @@ const triggerFileInput = () => {
 }
 
 .el-menu {
-  background-color: var(--primary-200);
+  /* background-color: var(--primary-200); */
+  background-color: var(--bg);
+  border-radius: 8px;
   display: grid;
   grid-template-rows: repeat(8, 1fr);
   gap: 15px;
@@ -236,14 +238,18 @@ const triggerFileInput = () => {
 }
 
 .title {
+  border-radius: 4px;
   display: grid;
   place-items: center;
   width: 100%;
   height: 100%;
-  background-color: var(--yellow);
+  background-color: var(--bg);
+
   font-size: 22px;
-  font-weight: 200;
-  color: var(--grey1);
+  font-weight: 500;
+  
+
+  color: #ffffff;
 }
 
 /* 悬停效果 */

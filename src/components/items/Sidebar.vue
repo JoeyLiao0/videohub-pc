@@ -68,7 +68,7 @@
             </el-menu-item>
 
             <div class="avatar">
-                <el-avatar @click="handleAvatarClick" :size="80" :src="avatarSrc" style="border: 1px solid black">
+                <el-avatar @click="handleAvatarClick" :size="80" :src="avatarSrc" >
                 </el-avatar>
                 <!-- <div class="status-dot"></div> -->
             </div>
@@ -95,7 +95,7 @@ const activeIdx = computed(() => router.currentRoute.value.path);
 
 <style scoped>
 .grid-container {
-    width: 100%;
+    /* padding: 10px; */
     height: 100%;
     display: grid;
     grid-template-columns: 1fr;
@@ -130,6 +130,8 @@ const activeIdx = computed(() => router.currentRoute.value.path);
     /* 添加手型指针样式 */
     transition: transform 0.3s ease;
     /* 平滑变换效果 */
+
+    /* border: none; */
 }
 
 .avatar:hover {
@@ -141,7 +143,6 @@ const activeIdx = computed(() => router.currentRoute.value.path);
     transform: scale(0.9);
     /* 点击时缩小，创建按下的效果 */
 }
-
 
 /* 悬停效果 */
 .el-menu-item:hover {
@@ -172,21 +173,27 @@ const activeIdx = computed(() => router.currentRoute.value.path);
 }
 
 .el-menu {
-    border-right:1px solid var(--primary-100);
-    /* background-color: var(--primary-100); */
-    
-     background: linear-gradient(to right, var(--primary-100),var(--primary-200));
-     /* box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.5); */
+
+    border-radius: 8px;
+    height: 100%;
+    border: none;
+
+    background-color: var(--bg);
 }
 
 .logo-img {
-    color:rgb(74, 166, 253);
+    color: rgb(255, 255, 255);
     grid-column: 2;
 }
 
 .logo-text {
 
-    color:rgb(74, 166, 253);
+    font-family: 'Roboto', sans-serif;
+    /* 使用 Roboto 字体，如果 Roboto 不可用则回退到系统默认的无衬线字体 */
+    font-weight: 100;
+    /* 加粗，根据需要调整 */
+    color: #eeeeee;
+    /* 字体颜色，根据需要调整 */
     grid-column: 3;
 }
 

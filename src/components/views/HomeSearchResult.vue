@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import {onMounted,computed,watch} from 'vue';
+import { onMounted, computed, watch } from 'vue';
 import { useStore } from 'vuex';
 import Video from '../items/Video.vue';
 import { getVideos } from "@/api/userApi";
@@ -22,19 +22,23 @@ const videos = computed(() => store.state.home.videoHomeSearchResultsData);
 
 // 观察 like 的变化
 watch(
-  () => store.state.home.like, 
+  () => store.state.home.like,
   async (newLike, oldLike) => {
-    // 当 like 发生变化时，发送请求
-    const params = {
-      status: 0,
-      like: newLike,
-    };
-    const response = await getVideos(params);
-    if (response.data.code === 200) {
-      store.dispatch('home/setSearchResultData', response.data.data.videos);
-      console.log(response.data.data); 
-    } else {
-      console.log('视频获取失败');
+    try {
+      // 当 like 发生变化时，发送请求
+      const params = {
+        status: 0,
+        like: newLike,
+      };
+      const response = await getVideos(params);
+      if (response.data.code === 200) {
+        store.dispatch('home/setSearchResultData', response.data.data.videos);
+        console.log(response.data.data);
+      } else {
+        console.log('视频获取失败');
+      }
+    } catch (error) {
+      console.log(error);
     }
   },
   { immediate: true } // {immediate: true} 表示在 watch 创建时立即执行一次
@@ -59,7 +63,7 @@ onMounted(() => {
   /* 或者设置为一个固定的高度 */
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-auto-rows:250px;
+  grid-auto-rows: 250px;
   /* 定义五列 */
   gap: 20px 10px;
   box-sizing: border-box;

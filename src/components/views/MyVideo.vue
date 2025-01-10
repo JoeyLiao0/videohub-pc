@@ -88,9 +88,10 @@ onMounted(async() => {
 .container{
   scrollbar-width: thin; /* 设置滚动条宽度 */
   width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow-y:auto;
-  background-color: var(--primary-100);
+  /* background-color: var(--primary-100); */
+  background-color: var(--bg);
 }
 
 /* Webkit浏览器滚动条样式 */

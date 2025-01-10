@@ -30,7 +30,8 @@ import Search from "../items/Search.vue";
   grid-row: 1;
 }
 .content-container{
-  background-color: var(--primary-100);
+  /* background-color: var(--primary-100); */
+  background-color: var(--bg);
   /* background: linear-gradient(45deg, var(--primary-100), var(--primary-200)); */
   width: 100%;
   height: 100%;
