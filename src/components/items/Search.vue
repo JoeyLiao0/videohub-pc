@@ -64,6 +64,8 @@ function search() {
 
   position: relative;
   place-items: center;
+  /* border-bottom: 0.5px solid #969696; */
+
 }
 
 .search-container {
@@ -91,13 +93,17 @@ function search() {
 }
 
 .search-icon{
-  color: white;
+  color: rgb(184, 184, 184);
 }
 .search-icon:hover{
+  color: rgb(255, 255, 255);
+
   cursor: pointer;
 }
 ::v-deep .el-input__wrapper {
-  background-color:var(--primary-300);
+  /* background-color:var(--primary-300); */
+  background-color: rgba(255, 255, 255, 0.5);
+
   box-shadow: none !important;
 }
 

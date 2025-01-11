@@ -102,6 +102,7 @@ const activeIdx = computed(() => router.currentRoute.value.path);
     grid-template-rows: repeat(12, 1fr);
     place-items: center;
     overflow: hidden;
+    border: none;
 }
 
 .sub-grid-container {
@@ -146,7 +147,7 @@ const activeIdx = computed(() => router.currentRoute.value.path);
 
 /* 悬停效果 */
 .el-menu-item:hover {
-    background-color: var(--primary-250);
+    background-color: rgba(255, 255, 255,0.3);
     transform: scale(1.05);
     /* border-radius: 8px; */
     /* 点击时的缩放效果 */
@@ -160,8 +161,10 @@ const activeIdx = computed(() => router.currentRoute.value.path);
 
 /* 侧边栏高亮样式 */
 .el-menu-item.is-active {
-    background-color: var(--primary-250);
-    color: var(--text-100);
+    /* background-color: var(--primary-250); */
+    background-color: rgba(255, 255, 255,0.3);
+
+    /* color: var(--text-100); */
     /* 高亮字体颜色 */
 }
 

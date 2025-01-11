@@ -9,9 +9,7 @@
                 <div class="up-name">
                     <span> {{ name }} </span>
                 </div>            
-                <div class="return_button">
-                    <el-button color="#000" plain @click="lastPage">返回</el-button>
-                </div>
+                <el-button class="return_button" type="primary" @click="lastPage">返回上一页</el-button>
             </div>
 
         </div>
@@ -68,9 +66,11 @@ function lastPage() {
     display: grid;
     position: relative;
     /* grid-template-columns: 250px; */
-    background-color: var(--primary-200);
+    background-color: rgba(1, 1, 1, 0.8);
+
     justify-content: center;
     width: 100%;
+    border-radius: 8px;
 }
 
 .right-up-info {
@@ -84,7 +84,8 @@ function lastPage() {
 .up-panel-container {
     display: flex;
     align-items: center;
-    background-color: var(--primary-200);
+    background-color: rgba(1, 1, 1, 0.8);
+
     border-bottom: 1px solid black;
     /* border-radius: 20px; */
     padding: 10px;
@@ -117,28 +118,54 @@ function lastPage() {
     margin-top: -15px;
 }
 
-.up-name span:hover {
+/* .up-name span:hover {
     cursor: pointer;
     color: var(--text-white1);
     transition: color 0.3s ease;
-}
+} */
 
 /* 视频列表 */
 .video-list {
     padding-top: 20px;
     padding-bottom: 20px;
     grid-column: 1;
-    width: 90%;
-    height: 580px;
+    width: 100%;
+    height: 520px;
     display: grid;
     grid-auto-rows: 80px;
     gap: 10px;
     /* 网格项之间的间隔 */
     /* background-color: var(--background-black2); */
     margin-top:10px;
-    margin-left:5%;
+    /* margin-left:5%; */
     overflow: auto;
+    /* position:fixed; */
 }
+/* Webkit浏览器滚动条样式 */
+.video-list::-webkit-scrollbar {
+  width: 0.5px;
+  /* 滚动条宽度 */
+}
+
+.video-list::-webkit-scrollbar-track {
+  background: var(--background-black1);
+  /* 滚动条轨道背景色 */
+  border-radius: 3px;
+  /* 滚动条轨道圆角 */
+}
+
+.video-list::-webkit-scrollbar-thumb {
+  background: #888;
+  /* 滚动条滑块背景色 */
+  border-radius: 6px;
+  /* 滚动条滑块圆角 */
+}
+
+.video-list::-webkit-scrollbar-thumb:hover {
+  background: var(--text-white2);
+  /* 滚动条滑块悬停背景色 */
+}
+
 
 /* 视频小框 */
 .video-card {
@@ -146,4 +173,11 @@ function lastPage() {
     padding: 0;
     margin-bottom: 12px;
 }
+
+.return_button{
+    position: relative;
+    left: 0px;
+}
+
+
 </style>

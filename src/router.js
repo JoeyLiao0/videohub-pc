@@ -9,6 +9,9 @@ import MeInfo from "./components/views/MeInfo.vue";
 import MePassword from "./components/views/MePassword.vue";
 import HomeOrigin from "./components/views/HomeOrigin.vue";
 import HomeSearchResult from "./components/views/HomeSearchResult.vue";
+
+import Video from "@/components/items/Video.vue";
+
 // 定义路由配置
 const routes = [
   {
@@ -61,6 +64,11 @@ const routes = [
     name: "VideoPlay",
     component: VideoPlay,
   },
+  {
+    path:"/video",
+    name:"Video",
+    component:Video
+  }
   // ...其他路由配置
 ];
 

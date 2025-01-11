@@ -33,7 +33,7 @@ body,
   grid-column: 1;
   margin: 10px;
   border-radius: 8px;
-  border:1px solid rgb(48, 48, 48);
+  /* border:1px solid rgb(48, 48, 48); */
 }
 
 .app-grid-container {
@@ -47,7 +47,7 @@ body,
 
 .app-main-content {
   margin: 10px;
-  margin-left: -5px;
+  margin-left: -3px;
 
   grid-column: 2;
 
@@ -55,7 +55,7 @@ body,
   min-height: 600px;
 
   border-radius: 8px;
-  border:1px solid rgb(73, 73, 73);
+  /* border:1px solid rgb(73, 73, 73); */
 
   overflow-y: auto;
 }
@@ -106,7 +106,7 @@ body,
   --bg-300: #414654;
 
 
-  --bg:rgba(167, 167, 167, 0.6);
+  --bg:rgba(0, 0, 0, 0.5);
 
 }
 </style>

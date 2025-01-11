@@ -1,9 +1,9 @@
 <template>
   <div class="box" ref="playerBox" @click="videoPlayPage">
-    <video ref="video" muted disablePictureInPicture loop>
+    <!-- <video ref="video" muted disablePictureInPicture loop>
       <source :src="video_path" type="video/mp4" />
-      <p>您的浏览器不支持视频播放。</p> <!-- 提示信息 -->
-    </video>
+      <p>您的浏览器不支持视频播放。</p> 
+    </video> -->
 
     <!--封面-->
     <div class="cover" :class="{ hidden: !isCover }">
@@ -25,6 +25,7 @@
         <span id="time">{{ date(published_at) }}</span>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -167,10 +168,11 @@ function videoPlayPage(){
 
 <style scoped>
 .box:hover {
-  border-color: #726c6c;
+  border-color: #ffffff;
   /* 悬停时改变边框颜色 */
-  transform: scale(1.02);
+  /* transform: scale(1.02); */
   cursor: pointer;
+
 }
 
 .box {
@@ -178,18 +180,21 @@ function videoPlayPage(){
   overflow: hidden;
   position: relative;
   min-width: 200px;
+  max-width: 300px;
   height: 250px;
   grid-template-rows: 73% 27%;
   grid-template-columns: 1fr;
   transition: transform 0.3s ease;
-  border-radius: 3px;
-  border: solid var(--grey2) 1px;
+  border-radius: 8px;
+  /* border: solid rgba(0, 0, 0, 1) 1px; */
+  background-color: none;
 }
 
 video {
+  border-radius: 8px;
   position: absolute;
   width: 100%;
-  height: 73%;
+  height: 180px;
   object-fit: fill;
 }
 
@@ -197,30 +202,47 @@ video {
   position: absolute;
   opacity: 1;
   width: 100%;
-  height: 73%;
-  justify-content: center;
-  transition: opacity 0.3s ease;
+  height: 180px;
+  /* justify-content: center; */
+  border-radius: 8px;
+  border: solid rgba(255, 255, 255, 0.5) 1px;
+
+  /* transition: opacity 0.3s ease; */
+
+  box-sizing: border-box;
+}
+
+.cover:hover{
+  border-color: rgb(121, 152, 177);
 }
 
 .cover.hidden {
   opacity: 0;
+  border-radius: 8px;
 }
 
 .cover img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 8px;
+  color: #ffffff;
 }
 
 .info {
+  margin-top: 5px;
   grid-row: 2/3;
   grid-column: 1/2;
-  background-color: var(--grey2);
+  /* background-color: rgba(255, 255, 255, 0.5); */
   text-align: left;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 5fr 1fr 1fr;
   position: relative;
+}
+
+.title:hover{
+  color: rgb(0, 195, 255);
 }
 
 .title {

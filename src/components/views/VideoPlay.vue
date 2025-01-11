@@ -42,10 +42,10 @@ const id =ref((video!=null)?video.id:-1);
   grid-gap: 0 50px;
   grid-template-columns: 3fr 1fr;
   margin: 0 auto;
-  padding: 0 50px;
+  padding: 30px 20px;
   /* 这里加了50px就应该在min-width-50px */
   display: grid;
-  box-sizing: content-box;
+  box-sizing: border-box;
   justify-content: center;
   position: relative;
   background-color: var(--bg);
@@ -53,9 +53,34 @@ const id =ref((video!=null)?video.id:-1);
 
 }
 
+/* Webkit浏览器滚动条样式 */
+.VideoPlay-Win::-webkit-scrollbar {
+  width: 5px;
+  /* 滚动条宽度 */
+}
+
+.VideoPlay-Win::-webkit-scrollbar-track {
+  background: var(--background-black1);
+  /* 滚动条轨道背景色 */
+  border-radius: 3px;
+  /* 滚动条轨道圆角 */
+}
+
+.VideoPlay-Win::-webkit-scrollbar-thumb {
+  background: #888;
+  /* 滚动条滑块背景色 */
+  border-radius: 6px;
+  /* 滚动条滑块圆角 */
+}
+
+.VideoPlay-Win::-webkit-scrollbar-thumb:hover {
+  background: var(--text-white2);
+  /* 滚动条滑块悬停背景色 */
+}
+
 .VideoPlay {
   display: grid;
-  grid-template-rows: 700px 1fr;
+  grid-template-rows: 95vh 1fr;
   grid-column: 1;
 }
 
@@ -65,7 +90,12 @@ const id =ref((video!=null)?video.id:-1);
 }
 
 .VideoList {
+  /* position: fixed; */
   grid-column: 2;
   width: 100%;
 }
+
+
+
+
 </style>

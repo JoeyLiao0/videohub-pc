@@ -4,9 +4,9 @@
     <!-- <div class="layer"></div> -->
     <div class="auth-content">
       <!-- <button class="exit" @click="closeAuth">退出</button> -->
-       <div class="exit">
-         <div class="btnClose" @click="closeAuth"></div>
-       </div>
+      <div class="exit">
+        <div class="btnClose" @click="closeAuth"></div>
+      </div>
       <div class="content">
         <div class="login-grid-container" v-if="showLogin">
           <span class="title">登录界面</span>
@@ -157,43 +157,53 @@ async function login() {
   } else if (login_password.value.length < 6 || login_password.value.length > 18) {
     messageLogin.value = '密码长度应在6位到18位之间';
   } else {
+
     const userData = {
       email: login_username.value,
       password: CryptoJS.SHA256(login_password.value).toString(),//这里要加密一遍
     };
-    const response = await postUsersToken(userData);
-    if (response.data.code == 200) {
-      console.log(CryptoJS.SHA256(login_password.value).toString());
-      messageLogin.value = "登录成功！";
-      setAccessToken(response.data.data.access_token);
-      setRefreshToken(response.data.data.refresh_token);
-      router.push("/home/origin");
-      setTimeout(() => {
-        store.dispatch('user/closeAuth');
-        messageLogin.value = "";
-        login_username.value = "";
-        login_password.value = "";
-        messageRegister.value = "";
-        register_username.value = "";
-        register_password.value = "";
-        register_password2.value = "";
-      }, 1000);
 
-      console.log("登录成功");
+    try {
 
-      try {
-        const response = await getUsers();
-        if (response != null && response.data.code === 200) {
-          store.dispatch('user/setMeInfo', response.data.data.user);
+      const response = await postUsersToken(userData);
+      if (response.data.code == 200) {
+        console.log(CryptoJS.SHA256(login_password.value).toString());
+        messageLogin.value = "登录成功！";
+        setAccessToken(response.data.data.access_token);
+        setRefreshToken(response.data.data.refresh_token);
+        router.push("/home/origin");
+        setTimeout(() => {
+          store.dispatch('user/closeAuth');
+          messageLogin.value = "";
+          login_username.value = "";
+          login_password.value = "";
+          messageRegister.value = "";
+          register_username.value = "";
+          register_password.value = "";
+          register_password2.value = "";
+        }, 1000);
+
+        console.log("登录成功");
+
+        try {
+          const response = await getUsers();
+          if (response != null && response.data.code === 200) {
+            store.dispatch('user/setMeInfo', response.data.data.user);
+          }
+        } catch (error) {
+          if (error.message === "AUTHENTICATION_FAILED") {
+            console.log("访问令牌失效，请重新登录");
+            store.dispatch('user/openAuth');
+          }
         }
-      } catch (error) {
-        if (error.message === "AUTHENTICATION_FAILED") {
-          console.log("访问令牌失效，请重新登录");
-          store.dispatch('user/openAuth');
-        }
+      } else {
+        console.log(response.data.error);
       }
-    } else {
-      console.log(response.data.error);
+    } catch (error) {
+      if (error.message === "AUTHENTICATION_FAILED") {
+        console.log("访问令牌失效，请重新登录");
+        store.dispatch('user/openAuth');
+      }
     }
   }
 }
@@ -258,11 +268,12 @@ async function register() {
   z-index: 2000;
   /* 确保内容在最上层 */
   /* background-color: var(--bg-200); */
-  background: rgba(92, 92, 92, 0.9);
+  background: rgba(0, 0, 0, 1);
   /* background-color: var(--bg); */
-  
+
   border-radius: 8px;
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+  /* box-shadow: 2px 2px 1px rgba(255, 255, 255, 0.5); */
+  border: 1px solid #272727;
 }
 
 .layer {
@@ -448,38 +459,46 @@ async function register() {
 }
 
 .btnClose {
-    /* 自定义配置 */
-    --btn-size: 20px;  /* 按钮的宽高 */
-    --btn-x-size: 4px; /* X号线条粗细 */
-    --color: var(--primary-100);     /* 颜色 */
-    /* 配置 END */
+  /* 自定义配置 */
+  --btn-size: 20px;
+  /* 按钮的宽高 */
+  --btn-x-size: 4px;
+  /* X号线条粗细 */
+  --color: #ffffff;
+  /* 颜色 */
+  /* 配置 END */
 
-    position: relative;
-    width: var(--btn-size);
-    height: var(--btn-size);
+  position: relative;
+  width: var(--btn-size);
+  height: var(--btn-size);
 
-    /* X线条旋转后会有偏移，使用 flex 进行居中对齐修正 */
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+  /* X线条旋转后会有偏移，使用 flex 进行居中对齐修正 */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
+
 /* 绘制X线条 */
-.btnClose::after, .btnClose::before {
-    content: "";
-    position: absolute;
-    width: var(--btn-x-size);
-    height: var(--btn-size);
-    background-color: var(--color);
-    border-radius: calc(var(--btn-x-size ) / 2);
+.btnClose::after,
+.btnClose::before {
+  content: "";
+  position: absolute;
+  width: var(--btn-x-size);
+  height: var(--btn-size);
+  background-color: var(--color);
+  border-radius: calc(var(--btn-x-size) / 2);
 }
+
 /* 两条线条各向左右分别旋转 45 度*/
 .btnClose::after {
-    transform: rotate(45deg);
+  transform: rotate(45deg);
 }
-.btnClose::before{
-    transform: rotate(-45deg) ;
+
+.btnClose::before {
+  transform: rotate(-45deg);
 }
-.btnClose:hover{
+
+.btnClose:hover {
   cursor: pointer;
 
 }

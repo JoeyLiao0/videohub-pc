@@ -21,7 +21,7 @@ import Search from "../items/Search.vue";
   height: 100%;
   display: grid;
   padding: 0;
-  grid-template-rows: 120px 1fr;
+  grid-template-rows: 80px 1fr;
   overflow: hidden;
 }
 .search-container{

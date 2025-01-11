@@ -252,12 +252,13 @@ onMounted(() => {
 /* 视频播放整体 */
 .left-container {
     width: 100%;
-    margin: 0;
+    margin: 0px;
     padding: 0;
     height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: var(--primary-200);
+    background-color: rgba(1, 1, 1, 0.8);
+    border-radius: 8px;
 }
 
 /* 视频播放上部标题 */
@@ -368,6 +369,6 @@ onMounted(() => {
 }
 
 .toggle-button:hover {
-    background-color: var(--background-black2);
+    background-color: #111111;
 }
 </style>

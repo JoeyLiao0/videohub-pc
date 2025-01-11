@@ -169,7 +169,7 @@ function videoPlayPage() {
 </script>
 
 <style scoped>
-.video-container:hover {
+.box:hover {
   cursor: pointer;
 }
 .box {
@@ -183,7 +183,7 @@ function videoPlayPage() {
   grid-template-columns: 120px 1fr; /* 视频宽度自适应，信息占剩余空间 */
   transition: transform 0.3s ease;
   border-radius: 3px;
-  border: solid var(--grey2) 1px;
+  /* border: solid var(--grey2) 1px; */
 }
 
 .video-container {
@@ -207,6 +207,14 @@ video {
   left:0px;
   display: flex;
   transition: opacity 0.3s ease;
+
+  border: solid var(--grey2) 1px;
+  border-radius: 8px;
+
+}
+
+.cover:hover{
+  border-color: rgb(121, 152, 177);
 }
 
 .cover.hidden {
@@ -219,18 +227,23 @@ video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  color: aliceblue;
 }
 
 .info {
   grid-row: 1;
   grid-column: 2;
-  background-color: var(--primary-100);
+  /* background-color: var(--primary-100); */
   padding: 8px;
   display: flex;
   flex-direction: column;
   overflow: hidden; /* 超出部分隐藏 */
   text-overflow: ellipsis; /* 文本超出部分显示省略号 */
   white-space: nowrap; /* 防止文本自动换行 */
+}
+
+.title:hover{
+    color: aqua;
 }
 
 .title {

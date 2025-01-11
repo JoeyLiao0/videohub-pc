@@ -140,8 +140,9 @@ onMounted(async() => {
   width: 90%;
   margin-left:5%;
   border:none;
-  height: 1px;
-  background-color:var(--primary-200);
+  height: 0.5px;
+  /* background-color:var(--primary-200); */
+  background-color: #919191;
 }
 
 

@@ -307,13 +307,15 @@ async function clicked_like(item) {
 <style scoped>
 .comment {
     
-    background-color: var(--primary-300);
+    /* background-color: var(--primary-100); */
+    background-color: rgba(0, 0, 0, 0.8);
     height: auto;
     margin-bottom: 20px;
 }
 
 .my-reply {
-    background-color:var(--primary-300);
+    /* background-color:var(--primary-100); */
+    background-color: rgba(0, 0, 0, 0.8);
     position: relative;
     display: grid;
     grid-template-rows: auto;
@@ -432,14 +434,25 @@ async function clicked_like(item) {
 .reply-button {
     font-size: 12px;
     border: none;
+    border-radius: 4px;
+    background-color: rgb(71, 112, 226);
+    color:aliceblue;
 }
 
 .reply-button:hover {
     cursor: pointer;
+    background-color: rgb(110, 140, 224);
+
 }
 
 .comment-like {
     color: rgb(255, 255, 255);
+    animation: fireworks 0.5s forwards;
+    transition: transform 0.5s ease-in-out;
+}
+
+.comment-like:hover{
+    color: rgb(75, 125, 201);
     animation: fireworks 0.5s forwards;
     transition: transform 0.5s ease-in-out;
 }

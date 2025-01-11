@@ -69,6 +69,7 @@ onMounted(async() => {
   grid-template-rows: 120px 1fr;
   overflow: auto;
   
+  
 }
 
 .search-container {
@@ -133,7 +134,7 @@ onMounted(async() => {
   width: 98%;
   margin-left: 1%;
   border: none;
-  height: 1px;
-  background-color: var(--primary-200);
+  height: 0.5px;
+  background-color: #919191;
 }
 </style>

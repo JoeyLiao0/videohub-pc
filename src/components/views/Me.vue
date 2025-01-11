@@ -3,8 +3,9 @@
 
     <div class="header-container">
       <div class="avatar">
-        <el-avatar :size="80" :src="avatarSrc" style="border: 1px solid black">
-        </el-avatar>
+        <!-- <el-avatar :size="80" :src="avatarSrc" :key="avatarSrc" style="border: 1px solid black">
+        </el-avatar> -->
+        <img :src="avatarSrc" :key="avatarSrc" style="width: 80px; height: 80px; border: 1px solid black; border-radius: 50%;">
         <input type="file" @change="handleFileChange" style="display: none" ref="fileInput">
         <span class="set" @click="triggerFileInput">设置</span>
       </div>
@@ -35,7 +36,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from "vue";
+import { computed, onMounted, ref,watch} from "vue";
 import { useStore } from 'vuex';
 import { useRouter } from "vue-router";
 import { getUsers } from '@/api/userApi';
@@ -48,6 +49,13 @@ const activeIdx = computed(() => router.currentRoute.value.path);
 const store = useStore();
 const userStatus = computed(() => store.state.user.status);
 const userRegisterTime = computed(() => store.state.user.registerTime);
+
+const avatarSrc = computed(()=>store.state.user.avatar);
+
+// 添加时间戳作为随机参数
+function avatarSrcWithTimestamp(a){
+  return `${a}?t=${Date.now()}`;
+};
 
 const date = computed(() => {
   const timestamp = userRegisterTime.value;
@@ -69,9 +77,10 @@ const status = computed(() => {
   }
 })
 
-const avatarSrc = computed(() => store.state.user.avatar);
+
 
 onMounted(()=>{
+  console.log("herereer");
   console.log(store.state.user.avatar);
 })
 
@@ -114,9 +123,14 @@ const uploadAvatar = async (file) => {
       //尝试更新个人信息
       try {
         const response2 = await getUsers();
+        console.log(response2.data.data);
         if (response2 != null && response2.data.code === 200) {
+          console.log("aaaa");
+          response2.data.data.user.avatar =  avatarSrcWithTimestamp(avatarSrc.value);
           store.dispatch('user/setMeInfo', response2.data.data.user);
+          console.log(avatarSrc.value);
         }
+
       } catch (error) {
         if (error.message === "AUTHENTICATION_FAILED") {
           console.log("访问令牌失效，请重新登录");
@@ -156,13 +170,13 @@ const triggerFileInput = () => {
 
 .header-container {
   width: 100%;
-  height: 100px;
+  height: 110px;
   grid-row: 1;
   display: grid;
   /* place-items: center; */
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: 120px 100px 100px;
-  border-bottom: 1px solid var(--primary-200);
+  border-bottom: 0.5px solid #969696;
   align-items: center;
 }
 

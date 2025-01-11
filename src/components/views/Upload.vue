@@ -41,7 +41,8 @@
         <textarea v-model="cinVideoDesc" placeholder="请输入视频简介"></textarea>
       </div>
       <div class="video-upload-btn">
-        <el-button class="btn" @click="handlePreviw">预览</el-button>
+        <el-button class="btn" @click="handlePreviw" >预览</el-button>
+        <!-- <el-button class="btn" @click="handlePreviw">预览</el-button> -->
         <el-button class="btn" @click="handleUpload">发布</el-button>
       </div>
     </div>
@@ -206,12 +207,12 @@ function handleUpload() {
 function handlePreviw() {
   if (cinVideoTitle.value) {
     if (cinVideoTitle.value.length < 2) {
-      alert('标题字数太少');
+      ElMessage.warning('标题字数太少');
       return;
     }
 
     if (cinVideoTitle.value.length > 50) {
-      alert('标题字数太多，最好5-50字');
+      ElMessage.warning('标题字数太多，最好5-50字');
       return;
     }
 
@@ -223,7 +224,7 @@ function handlePreviw() {
     console.log(releaseTime.value);
 
   } else {
-    alert('请输入标题');
+    ElMessage.warning('请输入标题');
     return;
   }
 }
@@ -289,7 +290,8 @@ function clearCinInfo() {
 .video {
   margin: 14px 10px;
   border-radius: 3px;
-  border: 1px solid var(--primary-100);
+  /* border: 1px solid var(--primary-100); */
+  background-color: rgba(1, 1, 1, 0.8);
   height: 600px;
 }
 
@@ -475,15 +477,17 @@ function clearCinInfo() {
   color: var(--background-black2);
 }
 
-.el-button {
+/* el-button {
   color: var(--background-black2);
   background-color: var(--text-100);
   border: none;
-}
+} */
 
 .btn{
   margin-bottom: 30px;
+  color: #ffffff;
 }
+
 .btn:hover {
   background-color: var(--primary-225);
   color:var(--text-100);
