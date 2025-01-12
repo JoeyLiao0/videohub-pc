@@ -38,19 +38,29 @@ watch(
         console.log('视频获取失败');
       }
     } catch (error) {
-      console.log(error);
+      console.log('视频获取失败');
     }
   },
   { immediate: true } // {immediate: true} 表示在 watch 创建时立即执行一次
 );
 
 // 如果您还需要在组件挂载时立即执行一次请求，可以保留 onMounted 钩子
-onMounted(() => {
+onMounted(async () => {
   const params = {
     status: 0,
     like: store.state.home.like,
   };
-  store.dispatch('home/fetchSearchResultsData', params);
+  try {
+    const response = await getVideos(params);
+    if (response.data.code === 200) {
+      store.dispatch('home/setSearchResultData', response.data.data.videos);
+      console.log(response.data.data);
+    } else {
+      console.log('视频获取失败');
+    }
+  } catch (error) {
+    console.log('视频获取失败');
+  }
 });
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->

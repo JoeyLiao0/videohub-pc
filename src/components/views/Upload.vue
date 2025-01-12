@@ -1,11 +1,11 @@
 <template>
   <div class="upload-container">
-    <UploadChildren v-show="showChild" class="upload-progress" :uploadedFile="fileInput" ref="uploadChildren"
+    <UploadChildren v-show="showChild" class="upload-progress"  ref="uploadChildren"
       @child-event="handleChildEvent" />
-
+      <!-- :uploadedFile="fileInput" -->
     <div class="upload-left">
       <div class="video">
-        <VideoLeftPlayer class="video-player" :id ="-1" :title="videoTitle" :published_at="releaseTime"
+        <VideoLeftPlayer class="video-player" :id ="'-1'" :title="videoTitle" :published_at="releaseTime"
           :video_path="cinVideoUrl" :description="videoDesc" />
       </div>
       <div class="video-upload">
@@ -59,7 +59,7 @@ import UploadChildren from '@/components/items/UploadChildren';
 
 const videoTitle = ref('');// 标题
 const videoDesc = ref(''); // 简介
-const releaseTime = ref(''); // 发布时间
+const releaseTime = ref(0) // 发布时间
 
 const cinVideoTitle = ref(''); // 设置标题
 const cinVideoDesc = ref(''); // 设置简介

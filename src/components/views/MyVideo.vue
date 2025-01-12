@@ -55,7 +55,7 @@ import { computed,onMounted } from 'vue';
 import { useStore } from 'vuex';
 import Video from '../items/Video.vue';
 import { getUsersVideos } from "@/api/userApi";
-
+import { ElMessage } from 'element-plus';
 const store = useStore(); // 直接访问 Vuex store
 const videos = computed(()=>store.state.user.myVideoData); // 从 store 中获取 myVideoData 数组
 
@@ -74,11 +74,13 @@ onMounted(async() => {
     } else {
       console.log('我的发布视频获取失败');
     }
-  } catch (error) {
+  } catch (error) {      
     if (error.message === 'AUTHENTICATION_FAILED') {
       store.dispatch('user/openAuth');
+    }else{
+      ElMessage.error("网络问题，请稍后再试");
     }
-    console.log(error.message);
+    console.log("here",error.message);
   }  
 });
 </script>

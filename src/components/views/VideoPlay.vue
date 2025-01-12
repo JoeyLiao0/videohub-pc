@@ -80,7 +80,7 @@ const id =ref((video!=null)?video.id:-1);
 
 .VideoPlay {
   display: grid;
-  grid-template-rows: 95vh 1fr;
+  grid-template-rows: auto 1fr;
   grid-column: 1;
 }
 

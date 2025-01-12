@@ -1,5 +1,5 @@
 <template>
-    <div class="page-container" v-show="shouldShow">
+    <div class="page-container">
         <div class="content">
             <ListItem :uploadFileList="uploadFileList" />
         </div>
@@ -13,7 +13,8 @@ import { uploadFile, mergeChunk } from '@/api/index.js';
 import { v4 as uuidv4 } from 'uuid';
 import ListItem from "@/components/items/ListItem.vue";
 
-const chunkSize = 10 * 1024 * 1024;
+
+const chunkSize = 10 * 1024 * 1024;//10 MB
 // 上传文件列表
 const uploadFileList = ref([]);
 // 请求最大并发数
@@ -58,6 +59,30 @@ const hanldeUploadFile = async (uploadSrcFile) => {
     console.log('开始计算hash：2');
     // 计算文件hash
     const { fileHash, fileChunkList, chunkHashes } = await useWorker(file);
+
+    //到此处都没有问题，成功计算总hash
+    //这里尝试合并一下计算hash/////////////////////////////////////////
+    // let fileChunkList2 = [];
+    // for(const chunk of fileChunkList){
+    //     // console.log("chunk",chunk);
+    //   fileChunkList2.push(chunk.chunkFile);
+    // }
+    // async () => {
+      // 合并分片文件数组
+    //   const mergedBlob = new Blob(fileChunkList2, { type: file.type });
+
+    //   // 计算合并后的 Blob 的 SHA-256 哈希值
+    //   const arrayBuffer = await mergedBlob.arrayBuffer();
+    //   const hashBuffer = await crypto.subtle.digest('SHA-256', arrayBuffer);
+    //   const hashArray = Array.from(new Uint8Array(hashBuffer));
+    //   const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    //   console.log("希望2",hashHex);
+    // };
+
+
+
+    ///////////////////////////////////////////////////////////////////////////////////
+
     console.log(`hash计算完毕 3:  fileChunkList.length:${fileChunkList.length}, chunkHashes.length:${chunkHashes.length}`);
     // 设置文件hash并且更改状态为上传中
     inTaskArrItem.fileHash = `${fileHash}`;
@@ -294,6 +319,7 @@ defineExpose({
 
 // 定义可以触发的事件
 const emit = defineEmits(['child-event']);
+
 
 </script>
 

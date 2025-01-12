@@ -1,9 +1,9 @@
 <template>
   <div class="box" ref="playerBox" @click="videoPlayPage">
-    <!-- <video ref="video" muted disablePictureInPicture loop>
+    <video ref="video" muted disablePictureInPicture loop>
       <source :src="video_path" type="video/mp4" />
       <p>您的浏览器不支持视频播放。</p> 
-    </video> -->
+    </video>
 
     <!--封面-->
     <div class="cover" :class="{ hidden: !isCover }">

@@ -44,7 +44,7 @@
                     {{ description }}
                 </p>
             </div>
-            <button v-if="showOk" ref="toggleButton" class="toggle-button" @click="handlerClick">更多</button>
+            <!-- <button v-if="showOk" ref="toggleButton" class="toggle-button" @click="handlerClick">更多</button> -->
         </div>
 
     </div>
@@ -350,7 +350,8 @@ onMounted(() => {
 .video-desc-info {
     margin-left: 10px;
     min-height: 60px;
-    max-height: 80px;
+    max-height: 200px;
+    margin-bottom: 20px;
     font: 13px;
     color: var(--text-white2);
     overflow: hidden;
