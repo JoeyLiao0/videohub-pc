@@ -230,7 +230,8 @@ video {
 }
 
 .info {
-  margin-top: 5px;
+  margin-top: 0px;
+  margin-bottom: 5px;
   grid-row: 2/3;
   grid-column: 1/2;
   /* background-color: rgba(255, 255, 255, 0.5); */

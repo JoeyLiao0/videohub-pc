@@ -12,8 +12,8 @@ function createFileChunk(file, chunkSize) {
       fileChunkList2.push(file.slice(cur, cur + chunkSize));
       cur += chunkSize;
     }
-    console.log("这里哦",(await mergeAndHashChunks(fileChunkList2,file)).fileHash);
-    // console.log("别玩了",await calculateFileHash(file));
+    // console.log("here1",(await mergeAndHashChunks(fileChunkList2,file)).fileHash);
+    // console.log("here2",await calculateFileHash(file));
     //此处没问题，两个hash一致
     resolve(fileChunkList);
   });
@@ -71,24 +71,6 @@ async function processChunksWithConcurrencyLimit(fileChunkList, concurrencyLimit
   return results;
 }
 
-// 计算整个文件的SHA-256哈希值
-// async function calculateFileHash(file) {
-//   // // 合并所有切片的ArrayBuffer
-//   // let totalLength = chunkResults.reduce((acc, { arrayBuffer }) => acc + arrayBuffer.byteLength, 0);
-//   // const mergedBuffer = new Uint8Array(totalLength);
-//   // console.log("开始合并分片");
-//   // let offset = 0;
-//   // for (const { arrayBuffer } of chunkResults) {
-//   //   mergedBuffer.set(new Uint8Array(arrayBuffer), offset);
-//   //   offset += arrayBuffer.byteLength;
-//   // }
-//   console.log("开始计算最终hash值");
-//   // 计算整个文件的哈希值
-//   // const hashArray = Array.from(mergedBuffer);
-//   // const fileHash = sha256.array(hashArray).map(b => b.toString(16).padStart(2, '0')).join('');
-//   // console.log("最终的hash值:"+fileHash);
-//   // return fileHash;
-// }
 
 // 计算整个文件的SHA-256哈希值
 async function calculateFileHash(file) {
@@ -138,7 +120,7 @@ async function calculateChunksHash(fileChunkList, concurrencyLimit, file) {
     for(const chunk of fileChunkList){
       fileChunkList2.push(chunk.chunkFile);
     }
-    console.log("希望",(await mergeAndHashChunks(fileChunkList2,file)).fileHash);
+    // console.log("希望",(await mergeAndHashChunks(fileChunkList2,file)).fileHash);
 
 
 
@@ -161,7 +143,7 @@ self.addEventListener(
   'message',
   async (e) => {
     try {
-      const { file, chunkSize, concurrencyLimit = 6 } = e.data;
+      const { file, chunkSize, concurrencyLimit = 12 } = e.data;
       const fileChunkList = await createFileChunk(file, chunkSize);
       await calculateChunksHash(fileChunkList, concurrencyLimit, file);
     } catch (err) {

@@ -131,23 +131,23 @@ async function clicked_like() {
             try {
                 const response = await postVideosLike(videoData);
                 if (response.data.code === 200) {
-                    console.log('点赞成功');
+                    // // console.log('点赞成功');
                 } else {
-                    console.log('点赞失败');
+                    // // console.log('点赞失败');
                 }
             } catch (error) {
-                console.log('点赞请求有误');
+                // // console.log('点赞请求有误');
             }
         } else {
             try {
                 const response = await deleteVideosLike(videoData);
                 if (response.data.code === 200) {
-                    console.log('取消点赞成功');
+                    // // console.log('取消点赞成功');
                 } else {
-                    console.log('取消点赞失败');
+                    // // console.log('取消点赞失败');
                 }
             } catch (error) {
-                console.log('点赞请求有误');
+                // // console.log('点赞请求有误');
             }
         }
     }
@@ -163,23 +163,23 @@ async function clicked_collect() {
             try {
                 const response = await postUsersFavorites(videoData);
                 if (response.data.code === 200) {
-                    console.log('收藏成功');
+                    // console.log('收藏成功');
                 } else {
-                    console.log('收藏失败');
+                    // console.log('收藏失败');
                 }
             } catch (error) {
-                console.log('收藏请求有误');
+                // console.log('收藏请求有误');
             }
         } else {
             try {
                 const response = await deleteUsersFavorites(videoData);
                 if (response.data.code === 200) {
-                    console.log('取消收藏成功');
+                    // console.log('取消收藏成功');
                 } else {
-                    console.log('取消收藏失败');
+                    // console.log('取消收藏失败');
                 }
             } catch (error) {
-                console.log('收藏请求有误');
+                // console.log('收藏请求有误');
             }
         }
     }

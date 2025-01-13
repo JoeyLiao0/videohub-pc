@@ -13,8 +13,8 @@ const homeStore = {
     // 定义你的 mutations
     SET_VIDEO_HOME_DATA(state, payload) {
       state.videoHomeData = payload;
-      console.log("payload");
-      console.log(payload);
+      // console.log("payload");
+      // console.log(payload);
     },
     SET_SEARCH_RESULTS_DATA(state, payload) {
       state.videoHomeSearchResultsData = payload;
@@ -27,26 +27,9 @@ const homeStore = {
     },
   },
   actions: {
-    // async fetchVideoHomeData({ commit }, query) {
-    //   try {
-    //     const response = await getVideos(query);
-    //     commit('SET_VIDEO_HOME_DATA', response.data.videos);
-    //     console.log(response.data.videos);
-    //   } catch (error) {
-    //     console.error('Failed to fetch video home data:', error);
-    //   }
-    // },
-    // async fetchSearchResultsData({ commit }, query) {
-    //   try {
-    //     const response = await getVideos(query);
-    //     commit('SET_SEARCH_RESULTS_DATA', response.data.videos);
-    //   } catch (error) {
-    //     console.error('Failed to fetch search results:', error);
-    //   }
-    // },
     setVideoHomeData({ commit }, data) {
-      console.log("data");
-      console.log(data);
+      // console.log("data");
+      // console.log(data);
       commit("SET_VIDEO_HOME_DATA", data);
     },
     setSearchResultData({ commit }, data) {

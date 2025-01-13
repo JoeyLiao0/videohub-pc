@@ -123,7 +123,7 @@ onMounted(async () => {
     }
   } catch (error) {
     if (error.message === "AUTHENTICATION_FAILED") {
-      console.log("访问令牌失效，请重新登录");
+      // console.log("访问令牌失效，请重新登录");
       store.dispatch('user/openAuth');
     }
   }
@@ -140,10 +140,10 @@ async function getCode() {
     const response = await postUsersEmail(email);
     if (response.data.code === 200) {
       messageRegister.value = "验证码发送成功";
-      console.log('验证码发送成功');
+      // console.log('验证码发送成功');
     } else {
       messageRegister.value = response.data.error;
-      console.log("验证码发送失败");
+      // console.log("验证码发送失败");
     }
   }
 }
@@ -167,7 +167,7 @@ async function login() {
 
       const response = await postUsersToken(userData);
       if (response.data.code == 200) {
-        console.log(CryptoJS.SHA256(login_password.value).toString());
+        // console.log(CryptoJS.SHA256(login_password.value).toString());
         messageLogin.value = "登录成功！";
         setAccessToken(response.data.data.access_token);
         setRefreshToken(response.data.data.refresh_token);
@@ -183,7 +183,7 @@ async function login() {
           register_password2.value = "";
         }, 1000);
 
-        console.log("登录成功");
+        // console.log("登录成功");
 
         try {
           const response = await getUsers();
@@ -192,16 +192,16 @@ async function login() {
           }
         } catch (error) {
           if (error.message === "AUTHENTICATION_FAILED") {
-            console.log("访问令牌失效，请重新登录");
+            // console.log("访问令牌失效，请重新登录");
             store.dispatch('user/openAuth');
           }
         }
       } else {
-        console.log(response.data.error);
+        // console.log(response.data.error);
       }
     } catch (error) {
       if (error.message === "AUTHENTICATION_FAILED") {
-        console.log("访问令牌失效，请重新登录");
+        // console.log("访问令牌失效，请重新登录");
         store.dispatch('user/openAuth');
       }
     }
@@ -228,10 +228,10 @@ async function register() {
       const response = await postUsers(userData);
       if (response.data.code === 200) {
         messageRegister.value = "注册成功！";
-        console.log('注册成功');
+        // console.log('注册成功');
       } else {
         messageRegister.value = response.data.error;
-        console.log('注册失败');
+        // console.log('注册失败');
       }
     } catch (error) {
       messageRegister.value = '网络错误,请稍后重试';

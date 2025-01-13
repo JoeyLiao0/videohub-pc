@@ -70,9 +70,9 @@ onMounted(async() => {
     const response = await getUsersVideos();
     if (response.data.code === 200) {
       store.dispatch('user/setMyVideo', response.data.data.videos);
-      console.log(response.data.data.videos); 
+      // // console.log(response.data.data.videos); 
     } else {
-      console.log('我的发布视频获取失败');
+      // // console.log('我的发布视频获取失败');
     }
   } catch (error) {      
     if (error.message === 'AUTHENTICATION_FAILED') {
@@ -80,7 +80,7 @@ onMounted(async() => {
     }else{
       ElMessage.error("网络问题，请稍后再试");
     }
-    console.log("here",error.message);
+    // // console.log("here",error.message);
   }  
 });
 </script>

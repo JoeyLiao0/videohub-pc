@@ -108,10 +108,10 @@ onMounted(async () => {
         if (response.data.code === 200) {
             comments.value = response.data.data.comments;
         } else {
-            console.log('评论获取请求失败');
+            // console.log('评论获取请求失败');
         }
     } catch (error) {
-        console.log('评论获取请求失败');
+        // console.log('评论获取请求失败');
     }
 })
 
@@ -193,7 +193,7 @@ async function sendComment0() {
         try {
             const response = await postVideosComments(commentData);
             if (response.data.code === 200) {
-                console.log('评论发送成功');
+                // console.log('评论发送成功');
 
                 const videoData = {
                     vid: props.id
@@ -203,17 +203,17 @@ async function sendComment0() {
                     if (response.data.code === 200) {
                         comments.value = response.data.data.comments;
                     } else {
-                        console.log('评论获取请求失败');
+                        // console.log('评论获取请求失败');
                     }
                 } catch (error) {
-                    console.log('评论获取请求失败');
+                    // console.log('评论获取请求失败');
                 }
 
             } else {
-                console.log('评论发送失败');
+                // console.log('评论发送失败');
             }
         } catch (error) {
-            console.log('评论发送请求失败');
+            // console.log('评论发送请求失败');
         }
         input_comment0.value = "";
         input_comment.value = "";
@@ -235,7 +235,7 @@ async function sendComment(reply, i) {
         try {
             const response = await postVideosComments(commentData);
             if (response.data.code === 200) {
-                console.log('评论发送成功');
+                // console.log('评论发送成功');
 
                 const videoData = {
                     vid: props.id
@@ -245,17 +245,17 @@ async function sendComment(reply, i) {
                     if (response.data.code === 200) {
                         comments.value = response.data.data.comments;
                     } else {
-                        console.log('评论获取请求失败');
+                        // console.log('评论获取请求失败');
                     }
                 } catch (error) {
-                    console.log('评论获取请求失败');
+                    // console.log('评论获取请求失败');
                 }
 
             } else {
-                console.log('评论发送失败');
+                // console.log('评论发送失败');
             }
         } catch (error) {
-            console.log('评论发送请求失败');
+            // console.log('评论发送请求失败');
         }
         input_comment0.value = "";
         input_comment.value = "";
@@ -281,23 +281,23 @@ async function clicked_like(item) {
         try {
             const response = await postVideosCommentsLike(commentData);
             if (response.data.code === 200) {
-                console.log('评论点赞成功');
+                // console.log('评论点赞成功');
             } else {
-                console.log('评论点赞失败');
+                // console.log('评论点赞失败');
             }
         } catch (error) {
-            console.log('评论点赞请求有误');
+            // console.log('评论点赞请求有误');
         }
     } else {
         try {
             const response = await deleteVideosCommentsLike(commentData);
             if (response.data.code === 200) {
-                console.log('取消评论点赞成功');
+                // console.log('取消评论点赞成功');
             } else {
-                console.log('取消评论点赞失败');
+                // console.log('取消评论点赞失败');
             }
         } catch (error) {
-            console.log('评论点赞请求有误');
+            // console.log('评论点赞请求有误');
         }
     }
 }

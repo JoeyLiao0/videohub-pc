@@ -38,16 +38,16 @@ onMounted(async () => {
     const response = await getVideos(params);
     if (response.data.code === 200) {
       store.dispatch('home/setVideoHomeData', response.data.data.videos);
-      // console.log(response.data.data); 
-      // console.log(videos);
+      // // console.log(response.data.data); 
+      // // console.log(videos);
     } else {
-      console.log('视频获取失败');
+      // console.log('视频获取失败');
     }
   } catch (error) {
     if (error.message === 'AUTHENTICATION_FAILED') {
       store.dispatch('user/openAuth');
     }
-    console.log(error.message);
+    // console.log(error.message);
   }
 });
 </script>

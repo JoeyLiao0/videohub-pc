@@ -47,7 +47,7 @@ async function updateInfo() {
             const response = await putUsers(userData);
             if (response.data.code === 200) {
                 message.value = '修改成功';
-                console.log('修改成功');
+                // console.log('修改成功');
                 try {
                     const response = await getUsers();
                     if (response != null && response.data.code === 200) {
@@ -55,16 +55,16 @@ async function updateInfo() {
                     }
                 } catch (error) {
                     if (error.message === "AUTHENTICATION_FAILED") {
-                        console.log("访问令牌失效，请重新登录");
+                        // console.log("访问令牌失效，请重新登录");
                         store.dispatch('user/openAuth');
                     }
                 }
             } else {
                 message.value = response.data.error;
-                console.log(response.data.error);
+                // console.log(response.data.error);
             }
         } catch (error) {
-            console.log(error);
+            // console.log(error);
             message.value = '修改失败';
             input_name.value = '';
         }
@@ -82,7 +82,7 @@ onMounted(async () => {
         }
     } catch (error) {
         if (error.message === "AUTHENTICATION_FAILED") {
-            console.log("访问令牌失效，请重新登录");
+            // console.log("访问令牌失效，请重新登录");
             store.dispatch('user/openAuth');
         }
     }

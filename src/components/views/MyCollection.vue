@@ -44,16 +44,16 @@ onMounted(async() => {
     const response = await getUsersFavorites();
     if (response.data.code === 200) {
       store.dispatch('user/setMyCollection', response.data.data.videos);
-      console.log('收藏获取成功');
-      console.log(response.data.data.videos); 
+      // console.log('收藏获取成功');
+      // console.log(response.data.data.videos); 
     } else {
-      console.log('收藏获取失败');
+      // console.log('收藏获取失败');
     }
   } catch (error) {
     if (error.message === 'AUTHENTICATION_FAILED') {
       store.dispatch('user/openAuth');
     }
-    console.log(error.message);
+    // console.log(error.message);
   }  
 });
 </script>

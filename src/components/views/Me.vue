@@ -2,12 +2,12 @@
   <div class="grid-container">
 
     <div class="header-container">
-      <div class="avatar">
+      <div class="avatar" @click="triggerFileInput">
         <!-- <el-avatar :size="80" :src="avatarSrc" :key="avatarSrc" style="border: 1px solid black">
         </el-avatar> -->
         <img :src="avatarSrc" :key="avatarSrc" style="width: 80px; height: 80px; border: 1px solid black; border-radius: 50%;">
         <input type="file" @change="handleFileChange" style="display: none" ref="fileInput">
-        <span class="set" @click="triggerFileInput">设置</span>
+        <span class="set" >设置</span>
       </div>
       <span class="status">状态:{{ status }}</span>
       <span class="time">注册时间:{{ date }}</span>
@@ -79,10 +79,9 @@ const status = computed(() => {
 
 
 
-onMounted(()=>{
-  console.log("herereer");
-  console.log(store.state.user.avatar);
-})
+// onMounted(()=>{
+//   // console.log(store.state.user.avatar);
+// })
 
 // 当组件挂载时，获取个人数据
 // onMounted(async () => {
@@ -93,7 +92,7 @@ onMounted(()=>{
 //     }
 //   } catch (error) {
 //     if (error.message === "AUTHENTICATION_FAILED") {
-//       console.log("访问令牌失效，请重新登录");
+//       // console.log("访问令牌失效，请重新登录");
 //       store.dispatch('user/openAuth');
 //     }
 //   }
@@ -119,30 +118,30 @@ const uploadAvatar = async (file) => {
   try {
     const response = await postUsersAvatar(formData);
     if (response.data.code === 200) {
-      console.log('头像上传成功');
+      // // console.log('头像上传成功');
       //尝试更新个人信息
       try {
         const response2 = await getUsers();
-        console.log(response2.data.data);
+        // console.log(response2.data.data);
         if (response2 != null && response2.data.code === 200) {
-          console.log("aaaa");
+          // console.log("aaaa");
           response2.data.data.user.avatar =  avatarSrcWithTimestamp(avatarSrc.value);
           store.dispatch('user/setMeInfo', response2.data.data.user);
-          console.log(avatarSrc.value);
+          // // console.log(avatarSrc.value);
         }
 
       } catch (error) {
         if (error.message === "AUTHENTICATION_FAILED") {
-          console.log("访问令牌失效，请重新登录");
+          // // console.log("访问令牌失效，请重新登录");
           store.dispatch('user/openAuth');
         }
       }
     } else {
       message.value = response.data.error;
-      console.log(response.data.error);
+      // // console.log(response.data.error);
     }
   } catch (error) {
-    console.log(error);
+    // // console.log(error);
   }
 };
 
@@ -199,6 +198,9 @@ const triggerFileInput = () => {
 
 .avatar:hover .set {
   color: var(--background-black1); /* 悬停时显示的文字颜色 */
+}
+
+.avatar:hover{
   cursor: pointer;
 }
 

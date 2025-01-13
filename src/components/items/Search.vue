@@ -41,7 +41,7 @@ function search() {
         store.dispatch('home/setLike',searchValue.value);
         router.push("/home/search");
       }else{
-        console.log("搜索参数不能为空");
+        // console.log("搜索参数不能为空");
       }
       break;
     case 'collection':

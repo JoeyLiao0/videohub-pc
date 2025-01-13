@@ -18,14 +18,14 @@ const chunkSize = 10 * 1024 * 1024;//10 MB
 // 上传文件列表
 const uploadFileList = ref([]);
 // 请求最大并发数
-const maxRequest = ref(6);
+const maxRequest = ref(12);
 
 // 输入框change事件
 const hanldeUploadFile = async (uploadSrcFile) => {
-    console.log("进入函数内部: 1");
+    // console.log("进入函数内部: 1");
     const file = uploadSrcFile.videoFile;
     const fileId = `${uuidv4()}`;
-    console.log(`fileId:${fileId}`);
+    // console.log(`fileId:${fileId}`);
     // 设置整个文件的格式
     let inTaskArrItem = reactive({
         id: fileId, //
@@ -56,7 +56,7 @@ const hanldeUploadFile = async (uploadSrcFile) => {
         // 上传中断
         pauseUpload(inTaskArrItem, false)
     }
-    console.log('开始计算hash：2');
+    // console.log('开始计算hash：2');
     // 计算文件hash
     const { fileHash, fileChunkList, chunkHashes } = await useWorker(file);
 
@@ -83,7 +83,7 @@ const hanldeUploadFile = async (uploadSrcFile) => {
 
     ///////////////////////////////////////////////////////////////////////////////////
 
-    console.log(`hash计算完毕 3:  fileChunkList.length:${fileChunkList.length}, chunkHashes.length:${chunkHashes.length}`);
+    // console.log(`hash计算完毕 3:  fileChunkList.length:${fileChunkList.length}, chunkHashes.length:${chunkHashes.length}`);
     // 设置文件hash并且更改状态为上传中
     inTaskArrItem.fileHash = `${fileHash}`;
     inTaskArrItem.state = 2;
@@ -107,7 +107,7 @@ const hanldeUploadFile = async (uploadSrcFile) => {
                 chunkHash: chunkHashes[index]
             }
         })
-        console.log("上传单个文件: 5");
+        // console.log("上传单个文件: 5");
         inTaskArrItem.chunk_end_id = fileChunkList.length - 1;
         // 逐步对单个文件进行切片上传
         uploadSignleFile(inTaskArrItem);
@@ -168,7 +168,7 @@ const uploadSignleFile = (taskArrItem) => {
         fd.append('chunk_size', chunkSize);
         fd.append('chunk_hash', chunkHash);
 
-        console.log("chunk_hash"+chunkHash);
+        // console.log("chunk_hash"+chunkHash);
         // 上传切片
         const res = await uploadFile(fd, (onCancelFunc) => {
             // 在调用接口的同时，相当于同时调用了传入的这个函数，又能同时拿到返回的取消方法去赋值
@@ -183,22 +183,22 @@ const uploadSignleFile = (taskArrItem) => {
             return false
         }
 
-        console.log(`返回信息6:${chunk_id}`);
+        // console.log(`返回信息6:${chunk_id}`);
         // 请求异常,或者请求成功服务端返回报错都按单片上传失败逻辑处理
         if (!res || !res.data || res.data.code !== 200) {
-            console.log(`返回响应，${JSON.stringify(res)}`);
+            // console.log(`返回响应，${JSON.stringify(res)}`);
             taskArrItem.errNumber++
             // 超过3次之后直接上传中断W
             if (taskArrItem.errNumber > 3) {
-                console.log(`切片上传失败超过三次了,${chunk_id}`)
+                // console.log(`切片上传失败超过三次了,${chunk_id}`);
                 pauseUpload(taskArrItem, false) // 上传中断
                 emit('child-event', { message: "上传失败超过三次", result: false });
             } else {
-                console.log('切片上传失败还没超过3次')
+                // console.log('切片上传失败还没超过3次');
                 uploadChunk(needObj) // 失败了一片,继续当前分片请求
             }
         } else if (res.data.code === 200) {
-            console.log('切片上传成功', chunk_id);
+            // console.log('切片上传成功', chunk_id);
             // 单个文件上传失败次数大于0则要减少一个
             taskArrItem.errNumber > 0 ? taskArrItem.errNumber-- : 0
             taskArrItem.finishNumber++
@@ -244,7 +244,7 @@ const useWorker = (file) => {
 }
 // 调取合并接口处理所有切片
 const handleMerge = async (taskArrItem) => {
-    console.log('开始合并切片');
+    // console.log('开始合并切片');
     const { id, fileHash, chunk_end_id, videoTitle, videoDescription, videoImage } = taskArrItem
     const fd = new FormData()
     fd.append('upload_id', id);
@@ -254,22 +254,22 @@ const handleMerge = async (taskArrItem) => {
     fd.append('cover', videoImage);
     fd.append('video_hash', fileHash);
 
-    console.log("上传数据：", fd);
+    // console.log("上传数据：", fd);
     const res = await mergeChunk(fd).catch((err) => {
         alert("上传图片错误", err);
     })
 
-    console.log('合并接口返回', res);
+    // console.log('合并接口返回', res);
     //  如果合并成功则标识该文件已经上传完成
     if (res && res.data && res.data.code === 200) {
         // 设置文件上传状态
         finishTask(taskArrItem)
-        console.log('文件合并成功！');
+        // console.log('文件合并成功！');
         emit('child-event', { message: "上传成功", result: true });
     } else {
         // 否则暂停上传该文件
         pauseUpload(taskArrItem, true);
-        console.log('文件合并失败！');
+        // console.log('文件合并失败！');
         emit('child-event', { message: "文件合并时发生错误", result: false });
     }
     // 最后赋值文件切片上传完成个数为0

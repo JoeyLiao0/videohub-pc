@@ -68,13 +68,13 @@ async function changePwd() {
                 setTimeout(() => {
                     store.dispatch('user/openAuth');
                 }, 1000);
-                console.log('密码修改成功');
+                // console.log('密码修改成功');
             } else {
                 message.value = response.data.error;
-                console.log('密码修改失败');
+                // console.log('密码修改失败');
             }
         } catch (error) {
-            console.log(error);
+            // console.log(error);
         }
 
     }
@@ -91,13 +91,13 @@ async function getCode() {
             const response = await postUsersEmail(email);
             if (response.data.code === 200) {
                 message.value = "验证码发送成功";
-                console.log('验证码发送成功');
+                // console.log('验证码发送成功');
             } else {
                 message.value = response.data.error;
-                console.log("验证码发送失败");
+                // console.log("验证码发送失败");
             }
         }catch(error){
-            console.log(error);
+            // console.log(error);
         }
     }
 }

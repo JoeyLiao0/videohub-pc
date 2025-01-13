@@ -83,7 +83,7 @@ function handleVideoFileChange(event) {
   if (beforeUpload(file)) {
     uploadData.videoFile = file;
     event.target.value = ''; // 清空 input 以允许选择同一文件多次
-    console.log('generateChild:'); // 验证 generateChild 是否为 true
+    // // // console.log('generateChild:'); // 验证 generateChild 是否为 true
   }
 }
 // 视频加载之前的验证
@@ -191,7 +191,7 @@ function handleUpload() {
       isUploading.value = false;
       showChild.value = false;
     }
-  }, 60000); // 1分钟的超时时间
+  }, 60000*3); // 3分钟的超时时间
 
   // 调用子组件的方法
   if (uploadChildren.value && (typeof uploadChildren.value.hanldeUploadFile === 'function')) {
@@ -221,7 +221,7 @@ function handlePreviw() {
     videoDesc.value = cinVideoDesc.value;
     const currentDate = new Date().getTime();
     releaseTime.value = currentDate;
-    console.log(releaseTime.value);
+    // // // console.log(releaseTime.value);
 
   } else {
     ElMessage.warning('请输入标题');
@@ -388,6 +388,10 @@ function clearCinInfo() {
   transition: border-color 0.3s;
 }
 
+.video-image .avatar-uploader-trigger:hover{
+  /* background-color: #003b8f; */
+  background-color: rgb(117, 117, 117)
+}
 
 .video-image .avatar-uploader-trigger img {
   width: 100%;
@@ -397,7 +401,7 @@ function clearCinInfo() {
 
 .avatar-uploader-trigger .avatar-uploader-icon {
   font-size: 28px;
-  color: #8c939d;
+  color: #000000;
 }
 
 /* 标题 */
@@ -420,10 +424,13 @@ function clearCinInfo() {
 .video-title textarea {
   resize: none;
   grid-column: 2;
+  padding-top:5px;
+  padding-left: 10px;
+  /* margin: auto; */
   height: 30px;
-  /* background-color: var(--background-black3); */
-  /* color: var(--text-white1); */
   border: none;
+  border-radius: 4px;
+  font-size: 18px;
 }
 
 /* 简介 */
@@ -448,6 +455,8 @@ function clearCinInfo() {
   grid-column: 2;
   height: 200px;
   resize: none;
+  border-radius: 4px;
+  font-size: 18px;
 }
 
 /* 按钮 */
@@ -463,10 +472,10 @@ function clearCinInfo() {
   box-sizing: border-box;
 }
 
-/* .video-upload-btn:hover{ */
-  /* background-color: var(--primary-200); */
-  /* color:white; */
-/* } */
+/* .video-upload-btn:hover{
+  background-color: var(--primary-200);
+  color:white;
+} */
 
 .video-upload-btn button {
   width: 100px;

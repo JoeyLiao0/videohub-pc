@@ -33,12 +33,12 @@ watch(
       const response = await getVideos(params);
       if (response.data.code === 200) {
         store.dispatch('home/setSearchResultData', response.data.data.videos);
-        console.log(response.data.data);
+        // console.log(response.data.data);
       } else {
-        console.log('视频获取失败');
+        // console.log('视频获取失败');
       }
     } catch (error) {
-      console.log('视频获取失败');
+      // console.log('视频获取失败');
     }
   },
   { immediate: true } // {immediate: true} 表示在 watch 创建时立即执行一次
@@ -54,12 +54,12 @@ onMounted(async () => {
     const response = await getVideos(params);
     if (response.data.code === 200) {
       store.dispatch('home/setSearchResultData', response.data.data.videos);
-      console.log(response.data.data);
+      // console.log(response.data.data);
     } else {
-      console.log('视频获取失败');
+      // console.log('视频获取失败');
     }
   } catch (error) {
-    console.log('视频获取失败');
+    // console.log('视频获取失败');
   }
 });
 </script>
