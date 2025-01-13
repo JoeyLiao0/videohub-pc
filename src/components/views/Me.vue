@@ -50,7 +50,7 @@ const store = useStore();
 const userStatus = computed(() => store.state.user.status);
 const userRegisterTime = computed(() => store.state.user.registerTime);
 
-const avatarSrc = computed(()=>store.state.user.avatar);
+const avatarSrc = computed(()=>avatarSrcWithTimestamp(store.state.user.avatar));
 
 // 添加时间戳作为随机参数
 function avatarSrcWithTimestamp(a){

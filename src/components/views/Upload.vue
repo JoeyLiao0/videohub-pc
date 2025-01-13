@@ -278,7 +278,7 @@ function clearCinInfo() {
   grid-column: 1;
   /* background-color: var(--background-black2); */
   /* background-color: var(--primary-100); */
-  background-color: var(--bg);
+  /* background-color: var(--bg); */
 
   height: 100%;
   display: grid;
@@ -339,11 +339,13 @@ function clearCinInfo() {
 .upload-right {
   /* border: 1px solid black; */
   grid-column: 2;
-  height: auto;
-  width: auto;
+  height: 100%;
+  width: 100%;
   color: var(--text-white2);
+  display: grid;
+  align-items: center;
 
-  background-color: var(--bg);
+  /* background-color: var(--bg); */
 }
 
 /* 封面 */
