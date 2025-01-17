@@ -53,9 +53,20 @@ const userRegisterTime = computed(() => store.state.user.registerTime);
 const avatarSrc = computed(()=>avatarSrcWithTimestamp(store.state.user.avatar));
 
 // 添加时间戳作为随机参数
-function avatarSrcWithTimestamp(a){
-  return `${a}?t=${Date.now()}`;
-};
+function avatarSrcWithTimestamp(a) {
+  if (a) {
+    const timestamp = Date.now();
+    if (a.includes('?')) {
+      // 获取URL的路径部分
+      const urlWithoutParams = a.split('?')[0];
+      return `${urlWithoutParams}?t=${timestamp}`;
+    } else {
+      return `${a}?t=${timestamp}`;
+    }
+  } else {
+    return a;
+  }
+}
 
 const date = computed(() => {
   const timestamp = userRegisterTime.value;
